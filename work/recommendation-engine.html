@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Recommendation Engine · Vini Chhajed</title>
+<meta name="description" content="Case study: replacing rule-based matching with a similarity-scoring engine for an 80% lift in match quality." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body id="top">
+<div class="grain" aria-hidden="true"></div>
+
+<header class="site-header">
+  <a href="../index.html" class="wordmark">Vini Chhajed<span>.</span></a>
+  <nav class="site-nav">
+    <a href="index.html" class="hide-sm">Work</a>
+    <a href="mailto:vinichhajed@gmail.com" class="nav-cta">Get in touch</a>
+  </nav>
+</header>
+
+<main class="page-top">
+  <div class="container">
+    <a class="back-link" href="index.html"><span class="ar">←</span> All work</a>
+  </div>
+
+  <section class="detail-hero">
+    <div class="container">
+      <p class="eyebrow">Case 02 · Recommendation Systems</p>
+      <h1 class="case-title">A matching engine that learned what a good fit looks like.</h1>
+      <p class="case-dek">Users were matched to coaches and counsellors by hand-written rules. I replaced them with a model trained on what actually led to good sessions.</p>
+      <div class="case-anchor">
+        <span class="anchor-num">80<span class="suf">%</span></span>
+        <span class="anchor-label">lift in match quality over the rule-based baseline, with a <b>45% increase in match conversion</b>.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-body">
+    <div class="container">
+
+      <div class="case-block reveal">
+        <p class="block-label">01 · Problem</p>
+        <div class="block-body">
+          <h3>Rules don't scale, and they don't learn.</h3>
+          <p>Matching ran on hand-tuned filters: language, timezone, availability. The logic was brittle, ignored what actually made a session land, and capped how good any match could get as supply grew across markets.</p>
+          <div class="callouts">
+            <div class="callout"><span class="c-num"><span data-count="300">300</span>+</span><span class="c-txt">providers to score on every single request</span></div>
+            <div class="callout"><span class="c-num"><span data-count="36">36</span></span><span class="c-txt">countries the system had to generalise across</span></div>
+            <div class="callout"><span class="c-num">0</span><span class="c-txt">signal from what historically made a good match</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-block reveal">
+        <p class="block-label">02 · Method</p>
+        <div class="block-body">
+          <h3>Score on similarity. Then refine with structure.</h3>
+          <p>I built a <b>similarity-scoring engine</b> trained on historical successful sessions, then layered post-processing for timezone proximity, language, availability, and preference attributes. Design philosophy: keep the signal set tight, so results stay relevant instead of over-constrained in a thin market.</p>
+          <p>Models in play: content-based filtering and logistic regression, validated against the existing rule-based matches before anything shipped.</p>
+        </div>
+      </div>
+
+      <div class="case-block reveal">
+        <p class="block-label">03 · Result</p>
+        <div class="block-body">
+          <h3>Better matches, and more of them converting.</h3>
+          <div class="deltas">
+            <div class="delta win"><span class="d-label">Match quality</span><span class="d-val"><em>+80%</em></span></div>
+            <div class="delta win"><span class="d-label">Match conversion</span><span class="d-val"><em>+45%</em></span></div>
+            <div class="delta"><span class="d-label">Engagement</span><span class="d-val">Higher</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-block reveal">
+        <p class="block-label">04 · Decision</p>
+        <div class="block-body">
+          <h3>This wasn't a feature. It was the conversion mechanism.</h3>
+          <p>Once it shipped, <b>75% of all selections</b> came from the top 5 results the engine produced. That made it the single highest-leverage surface on the platform, and the natural place to later layer cost efficiency without touching relevance.</p>
+        </div>
+      </div>
+
+      <div class="pull reveal">
+        <blockquote>A recommendation engine isn't a feature. <span>It's the conversion mechanism.</span></blockquote>
+        <cite>Why the top 5 results decide everything</cite>
+      </div>
+
+    </div>
+  </section>
+
+  <nav class="next-case">
+    <div class="container">
+      <a href="funnel.html">
+        <div><span class="nc-label">Next case · 03</span><div class="nc-title">Rebuilding the path to first booking</div></div>
+        <span class="nc-arrow">→</span>
+      </a>
+    </div>
+  </nav>
+</main>
+
+<section class="closing" id="contact">
+  <div class="container reveal">
+    <p class="eyebrow">The next leak</p>
+    <h2>Every platform has one. <em>Let's find yours.</em></h2>
+    <p>Senior data analyst, ex-engineer for global banks, now scaling a platform across 36 countries. If your numbers feel slightly off but no one can say why, that's usually where the money is.</p>
+    <div class="btn-row">
+      <a href="mailto:vinichhajed@gmail.com" class="btn">vinichhajed@gmail.com <span class="ar">↗</span></a>
+      <a href="https://www.linkedin.com/in/vinichhajed/" class="btn btn-ghost">LinkedIn <span class="ar">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 Vini Chhajed</span>
+  <span>Diagnostic · built where product stops and finance starts</span>
+</footer>
+
+<script>
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const io = new IntersectionObserver((es) => { es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  const countUp = (el) => { const t = +el.dataset.count; if (reduce) { el.textContent = t.toLocaleString('en-US'); return; } const d = 1500, s = performance.now(); const tick = (n) => { const p = Math.min((n - s) / d, 1); const e = 1 - Math.pow(1 - p, 3); el.textContent = Math.round(e * t).toLocaleString('en-US'); if (p < 1) requestAnimationFrame(tick); }; requestAnimationFrame(tick); };
+  const co = new IntersectionObserver((es) => { es.forEach((e) => { if (e.isIntersecting) { countUp(e.target); co.unobserve(e.target); } }); }, { threshold: 0.6 });
+  document.querySelectorAll('[data-count]').forEach((el) => { const r = el.getBoundingClientRect(); const v = r.top < window.innerHeight && r.bottom > 0; if (!v && !reduce) co.observe(el); });
+</script>
+</body>
+</html>

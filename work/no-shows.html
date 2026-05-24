@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Experimentation: No-shows · Vini Chhajed</title>
+<meta name="description" content="Case study: a controlled experiment that cut the no-show rate from 6.9% to 2.5% and stopped paying for recurring no-shows." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body id="top">
+<div class="grain" aria-hidden="true"></div>
+
+<header class="site-header">
+  <a href="../index.html" class="wordmark">Vini Chhajed<span>.</span></a>
+  <nav class="site-nav">
+    <a href="index.html" class="hide-sm">Work</a>
+    <a href="mailto:vinichhajed@gmail.com" class="nav-cta">Get in touch</a>
+  </nav>
+</header>
+
+<main class="page-top">
+  <div class="container">
+    <a class="back-link" href="index.html"><span class="ar">←</span> All work</a>
+  </div>
+
+  <section class="detail-hero">
+    <div class="container">
+      <p class="eyebrow">Case 05 · Experimentation</p>
+      <h1 class="case-title">Paying only for sessions that actually happen.</h1>
+      <p class="case-dek">Providers were paid for recurring sessions even when the user repeatedly didn't show. I ran a controlled experiment to stop the leak without punishing genuine re-engagement.</p>
+      <div class="case-anchor">
+        <span class="anchor-num">6.9<span class="ar">→</span>2.5<span class="suf">%</span></span>
+        <span class="anchor-label">no-show rate, with paid no-shows in the test cohort dropping from <b>41% to 10%</b>.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-body">
+    <div class="container">
+
+      <div class="case-block reveal">
+        <p class="block-label">01 · Problem</p>
+        <div class="block-body">
+          <h3>One missed session quietly predicted the next.</h3>
+          <p>In recurring bookings, a single no-show was a strong signal of more to come, yet the platform kept paying providers for sessions the user never attended. The cost compounded silently across every recurring plan.</p>
+          <div class="callouts">
+            <div class="callout"><span class="c-num"><span data-count="75">75</span>%</span><span class="c-txt">miss rate on the next session after one no-show</span></div>
+            <div class="callout"><span class="c-num"><span data-count="41">41</span>%</span><span class="c-txt">of recurring sessions were paid no-shows at baseline</span></div>
+            <div class="callout"><span class="c-num">5mo</span><span class="c-txt">of data behind the analysis</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-block reveal">
+        <p class="block-label">02 · Method</p>
+        <div class="block-body">
+          <h3>Add one confirmation step, behind a controlled rollout.</h3>
+          <p>After a no-show, the user's upcoming recurring sessions move to <b>pending</b> and require an explicit confirmation; unconfirmed sessions auto-cancel 24 hours ahead, so providers aren't booked for a ghost. Users get push and email nudges with one-tap confirmation.</p>
+          <p>Run as a backend, user-level experiment against a matched control, with guardrails on completion and re-engagement so the cost win couldn't quietly wreck the experience.</p>
+          <div class="phases">
+            <span class="phase"><b>Trigger</b> · after a no-show</span>
+            <span class="sep">→</span>
+            <span class="phase"><b>Pending</b> · confirm to keep</span>
+            <span class="sep">→</span>
+            <span class="phase"><b>Auto-cancel</b> · 24h prior</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-block reveal">
+        <p class="block-label">03 · Result</p>
+        <div class="block-body">
+          <h3>Far fewer paid no-shows, with the tradeoff measured.</h3>
+          <div class="deltas">
+            <div class="delta win"><span class="d-label">No-show rate</span><span class="d-val"><em>6.9 → 2.5%</em></span></div>
+            <div class="delta win"><span class="d-label">Paid no-shows</span><span class="d-val"><em>41 → 10%</em></span></div>
+            <div class="delta"><span class="d-label">Completion (tradeoff)</span><span class="d-val">37 → 21%</span></div>
+          </div>
+          <p>Requiring confirmation recovered meaningful monthly cost. It also lowered completion, because some users re-engage less after a miss, a tradeoff I measured rather than hid.</p>
+        </div>
+      </div>
+
+      <div class="case-block reveal">
+        <p class="block-label">04 · Decision</p>
+        <div class="block-body">
+          <h3>Hand leadership a dial, not a verdict.</h3>
+          <p>I framed it as a choice with the numbers attached: full rollout for maximum savings, or a selective rollout that protects booking volume. The job wasn't to pick for them, it was to make the tradeoff impossible to misread.</p>
+        </div>
+      </div>
+
+      <div class="pull reveal">
+        <blockquote>Every fix has a tradeoff. <span>Name it before you ship.</span></blockquote>
+        <cite>Why the completion drop went in the report, not under it</cite>
+      </div>
+
+    </div>
+  </section>
+
+  <nav class="next-case">
+    <div class="container">
+      <a href="../index.html#work">
+        <div><span class="nc-label">Back to · 01</span><div class="nc-title">Finding the leak in a recommendation funnel</div></div>
+        <span class="nc-arrow">→</span>
+      </a>
+    </div>
+  </nav>
+</main>
+
+<section class="closing" id="contact">
+  <div class="container reveal">
+    <p class="eyebrow">The next leak</p>
+    <h2>Every platform has one. <em>Let's find yours.</em></h2>
+    <p>Senior data analyst, ex-engineer for global banks, now scaling a platform across 36 countries. If your numbers feel slightly off but no one can say why, that's usually where the money is.</p>
+    <div class="btn-row">
+      <a href="mailto:vinichhajed@gmail.com" class="btn">vinichhajed@gmail.com <span class="ar">↗</span></a>
+      <a href="https://www.linkedin.com/in/vinichhajed/" class="btn btn-ghost">LinkedIn <span class="ar">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 Vini Chhajed</span>
+  <span>Diagnostic · built where product stops and finance starts</span>
+</footer>
+
+<script>
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const io = new IntersectionObserver((es) => { es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  const countUp = (el) => { const t = +el.dataset.count; if (reduce) { el.textContent = t.toLocaleString('en-US'); return; } const d = 1500, s = performance.now(); const tick = (n) => { const p = Math.min((n - s) / d, 1); const e = 1 - Math.pow(1 - p, 3); el.textContent = Math.round(e * t).toLocaleString('en-US'); if (p < 1) requestAnimationFrame(tick); }; requestAnimationFrame(tick); };
+  const co = new IntersectionObserver((es) => { es.forEach((e) => { if (e.isIntersecting) { countUp(e.target); co.unobserve(e.target); } }); }, { threshold: 0.6 });
+  document.querySelectorAll('[data-count]').forEach((el) => { const r = el.getBoundingClientRect(); const v = r.top < window.innerHeight && r.bottom > 0; if (!v && !reduce) co.observe(el); });
+</script>
+</body>
+</html>

@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vini Chhajed · Senior Data Analyst</title>
+<meta name="description" content="I find the money hiding in your data. Senior data analyst working where product teams stop and finance teams start." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --paper: #F5F2EE;
+    --paper-2: #EFEAE2;
+    --ink: #1A1A1A;
+    --ink-72: rgba(26, 26, 26, .72);
+    --ink-50: rgba(26, 26, 26, .50);
+    --ink-35: rgba(26, 26, 26, .35);
+    --rust: #C84B31;
+    --rust-soft: rgba(200, 75, 49, .14);
+    --slate: #2D4A5F;
+    --sand: #E8E3DC;
+    --line: rgba(26, 26, 26, .14);
+    --line-soft: rgba(26, 26, 26, .08);
+    --ease: cubic-bezier(.22, .68, .2, 1);
+    --maxw: 1180px;
+    --pad: clamp(1.25rem, 5vw, 5rem);
+    --shadow: 0 1px 2px rgba(45, 74, 95, .04), 0 12px 28px -12px rgba(45, 74, 95, .18), 0 2px 8px -4px rgba(26, 26, 26, .06);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(1rem, .55vw + .9rem, 1.125rem);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  /* ---------- atmosphere ---------- */
+  .grain {
+    position: fixed; inset: 0; z-index: 60; pointer-events: none;
+    opacity: .045; mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding-inline: var(--pad); }
+
+  /* ---------- type ---------- */
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .72rem; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--rust); font-weight: 500;
+    display: inline-flex; align-items: center; gap: .7em;
+  }
+  .eyebrow::before { content: ""; width: 1.8em; height: 1px; background: var(--rust); opacity: .6; }
+
+  .mono { font-family: 'IBM Plex Mono', monospace; }
+
+  /* ---------- header ---------- */
+  .site-header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: clamp(1rem, 2vw, 1.6rem) var(--pad);
+    mix-blend-mode: multiply;
+  }
+  .wordmark {
+    font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.18rem;
+    letter-spacing: -.01em; color: var(--ink); text-decoration: none;
+    font-optical-sizing: auto;
+  }
+  .wordmark span { color: var(--rust); }
+  .site-nav { display: flex; align-items: center; gap: clamp(1.1rem, 2.4vw, 2.2rem); }
+  .site-nav a {
+    font-family: 'IBM Plex Mono', monospace; font-size: .78rem; letter-spacing: .04em;
+    color: var(--ink-72); text-decoration: none; position: relative; padding: .2em 0;
+    transition: color .35s var(--ease);
+  }
+  .site-nav a:not(.nav-cta)::after {
+    content: ""; position: absolute; left: 0; bottom: -1px; height: 1px; width: 100%;
+    background: var(--ink); transform: scaleX(0); transform-origin: right;
+    transition: transform .4s var(--ease);
+  }
+  .site-nav a:not(.nav-cta):hover { color: var(--ink); }
+  .site-nav a:not(.nav-cta):hover::after { transform: scaleX(1); transform-origin: left; }
+  .nav-cta {
+    border: 1px solid var(--ink); border-radius: 100px; padding: .5em 1.1em !important;
+    transition: background .35s var(--ease), color .35s var(--ease), transform .35s var(--ease);
+  }
+  .nav-cta:hover { background: var(--ink); color: var(--paper); }
+  .nav-cta:active { transform: translateY(1px); }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--rust); outline-offset: 3px; border-radius: 3px;
+  }
+  @media (max-width: 620px) { .hide-sm { display: none; } }
+
+  /* ---------- hero ---------- */
+  .hero {
+    position: relative; min-height: 100svh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding-block: clamp(7rem, 16vh, 11rem) clamp(2.5rem, 6vh, 4rem);
+    overflow: hidden;
+  }
+  .hero::before {
+    content: ""; position: absolute; inset: 0; z-index: 0;
+    background-image:
+      linear-gradient(var(--line-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size: 68px 68px;
+    -webkit-mask-image: radial-gradient(120% 90% at 80% 8%, #000 0%, transparent 62%);
+    mask-image: radial-gradient(120% 90% at 80% 8%, #000 0%, transparent 62%);
+  }
+  .hero::after {
+    content: ""; position: absolute; z-index: 0; right: -18vw; top: -20vh;
+    width: 70vw; height: 70vw; max-width: 900px; max-height: 900px; border-radius: 50%;
+    background:
+      radial-gradient(circle at 50% 50%, rgba(200, 75, 49, .10), transparent 60%),
+      radial-gradient(circle at 60% 40%, rgba(45, 74, 95, .10), transparent 62%);
+    filter: blur(8px);
+  }
+  .hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr .8fr; column-gap: clamp(1.5rem, 4vw, 3.5rem); row-gap: clamp(2.4rem, 5vh, 3.6rem); align-items: stretch; }
+  .hero-text { min-width: 0; }
+  .hero-portrait { position: relative; margin: 0; align-self: stretch; justify-self: end; width: 100%; max-width: 440px; }
+  .hero-portrait::before { content: ""; position: absolute; inset: 0; border: 1px solid var(--rust); border-radius: 14px; transform: translate(13px, 13px); z-index: 0; }
+  .hero-portrait .frame { position: relative; z-index: 1; border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); height: 100%; min-height: 360px; }
+  .hero-portrait img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 24%; }
+  .hero .stat-row { grid-column: 1 / -1; margin-top: 0; }
+  .hero .scroll-cue { grid-column: 1 / -1; margin-top: 0; }
+  .hero-fade { opacity: 0; animation: rise .9s var(--ease) forwards; }
+  @media (max-width: 880px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-portrait { justify-self: start; max-width: 300px; order: 0; margin-top: 0; }
+    .hero-portrait .frame { aspect-ratio: 4 / 5; height: auto; min-height: 0; }
+  }
+
+  .hero-title {
+    font-family: 'Fraunces', serif; font-optical-sizing: auto;
+    font-weight: 500; font-size: clamp(2.7rem, 6.2vw, 5.6rem);
+    line-height: .98; letter-spacing: -.035em;
+    margin: clamp(1.2rem, 3vh, 1.9rem) 0 0; max-width: 14ch;
+  }
+  .hl { position: relative; display: inline-block; white-space: nowrap; font-style: italic; }
+  .hl .t { position: relative; z-index: 1; }
+  .hl::after {
+    content: ""; position: absolute; left: -.06em; right: -.06em; bottom: .1em; height: .36em;
+    background: var(--rust); opacity: .9; z-index: 0; border-radius: 2px;
+    transform: scaleX(0) skewX(-3deg); transform-origin: left;
+    animation: wipe 1s .85s var(--ease) forwards;
+    mix-blend-mode: multiply;
+  }
+  @keyframes wipe { to { transform: scaleX(1) skewX(-3deg); } }
+
+  .hero-sub {
+    margin-top: clamp(1.4rem, 3vh, 2.1rem); max-width: 52ch;
+    font-size: clamp(1.05rem, .5vw + 1rem, 1.28rem); color: var(--ink-72); line-height: 1.62;
+  }
+  .hero-sub b { color: var(--ink); font-weight: 500; }
+
+  .hero-meta {
+    margin-top: clamp(1.6rem, 3vh, 2.2rem);
+    font-family: 'IBM Plex Mono', monospace; font-size: .8rem; letter-spacing: .02em;
+    color: var(--ink-50); display: flex; flex-wrap: wrap; gap: .5em 1.1em; align-items: center;
+  }
+  .hero-meta .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--rust); display: inline-block; }
+
+  /* ---------- stat row ---------- */
+  .stat-row {
+    list-style: none; margin-top: clamp(2.6rem, 6vh, 4.2rem);
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(.4rem, 2vw, 1.5rem);
+    border-top: 1px solid var(--line); padding-top: clamp(1.4rem, 3vh, 2rem);
+  }
+  .stat { display: flex; flex-direction: column; gap: .5rem; padding-right: 1rem; }
+  .stat + .stat { border-left: 1px solid var(--line); padding-left: clamp(.7rem, 2vw, 1.5rem); }
+  .stat-num {
+    font-family: 'IBM Plex Mono', monospace; font-weight: 500;
+    font-size: clamp(1.7rem, 4.4vw, 3.1rem); letter-spacing: -.03em; line-height: 1;
+    color: var(--ink); font-feature-settings: "tnum";
+  }
+  .stat-num .pre, .stat-num .suf { color: var(--rust); }
+  .stat-num .arrow { color: var(--ink-35); margin: 0 .08em; font-weight: 400; }
+  .stat-label {
+    font-size: .82rem; line-height: 1.4; color: var(--ink-50); max-width: 22ch;
+  }
+  @media (max-width: 720px) {
+    .stat-row { grid-template-columns: 1fr 1fr; gap: 0; }
+    .stat { padding: 1.1rem clamp(.7rem, 3vw, 1.2rem); }
+    .stat:nth-child(odd) { border-left: 0 !important; padding-left: 0; }
+    .stat:nth-child(even) { border-left: 1px solid var(--line); }
+    .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
+  }
+
+  .scroll-cue {
+    position: relative; z-index: 1; margin-top: clamp(2rem, 5vh, 3.5rem);
+    font-family: 'IBM Plex Mono', monospace; font-size: .72rem; letter-spacing: .2em;
+    text-transform: uppercase; color: var(--ink-35); display: flex; align-items: center; gap: .6em;
+  }
+  .scroll-cue .bar { width: 30px; height: 1px; background: var(--ink-35); position: relative; overflow: hidden; }
+  .scroll-cue .bar::after { content: ""; position: absolute; inset: 0; background: var(--rust); animation: slide 2.4s var(--ease) infinite; }
+  @keyframes slide { 0% { transform: translateX(-100%); } 60%,100% { transform: translateX(100%); } }
+
+  /* ---------- the gap ---------- */
+  .gap { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--paper-2); }
+  .gap-inner { display: flex; align-items: center; gap: clamp(1rem, 4vw, 3rem); padding-block: clamp(2.4rem, 6vh, 4rem); flex-wrap: wrap; }
+  .gap-statement {
+    font-family: 'Fraunces', serif; font-weight: 400; font-optical-sizing: auto;
+    font-size: clamp(1.5rem, 3.4vw, 2.5rem); line-height: 1.18; letter-spacing: -.02em; flex: 1 1 16ch;
+  }
+  .gap-statement em { font-style: italic; color: var(--rust); }
+  .gap-diagram { display: flex; align-items: center; gap: .8rem; flex: 0 0 auto; font-family: 'IBM Plex Mono', monospace; font-size: .82rem; }
+  .gap-node { padding: .55em .9em; border: 1px solid var(--line); border-radius: 6px; color: var(--ink-50); white-space: nowrap; background: var(--paper); }
+  .gap-node.me { border-color: var(--ink); color: var(--paper); background: var(--ink); position: relative; }
+  .gap-arrow { color: var(--ink-35); }
+
+  /* ---------- case study ---------- */
+  .case { padding-block: clamp(4rem, 12vh, 8rem); position: relative; }
+  .case-head { max-width: 30ch; }
+  .case-title {
+    font-family: 'Fraunces', serif; font-optical-sizing: auto; font-weight: 500;
+    font-size: clamp(2.1rem, 5.2vw, 3.7rem); line-height: 1.02; letter-spacing: -.03em;
+    margin-top: 1.2rem;
+  }
+  .case-dek { margin-top: 1.3rem; max-width: 56ch; color: var(--ink-72); font-size: clamp(1.02rem, .4vw + 1rem, 1.2rem); }
+
+  .case-anchor {
+    display: flex; align-items: baseline; gap: clamp(1rem, 3vw, 2.2rem); flex-wrap: wrap;
+    margin-top: clamp(2.5rem, 6vh, 4rem); padding-bottom: clamp(2.5rem, 6vh, 3.5rem);
+    border-bottom: 1px solid var(--line);
+  }
+  .anchor-num {
+    font-family: 'IBM Plex Mono', monospace; font-weight: 500; line-height: .9;
+    font-size: clamp(4rem, 16vw, 9.5rem); letter-spacing: -.05em; color: var(--ink);
+    font-feature-settings: "tnum";
+  }
+  .anchor-num .pre, .anchor-num .suf { color: var(--rust); font-size: .5em; }
+  .anchor-label { font-family: 'IBM Plex Mono', monospace; font-size: .9rem; color: var(--ink-50); max-width: 24ch; line-height: 1.5; }
+  .anchor-label b { color: var(--ink); font-weight: 500; }
+
+  /* case blocks */
+  .case-block { display: grid; grid-template-columns: minmax(0, 7.5rem) 1fr; gap: clamp(1rem, 4vw, 3rem); padding-block: clamp(2.4rem, 5vh, 3.6rem); border-bottom: 1px solid var(--line-soft); }
+  .block-label { font-family: 'IBM Plex Mono', monospace; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--rust); padding-top: .35rem; }
+  .block-body > * + * { margin-top: 1.1rem; }
+  .block-body h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(1.4rem, 2.6vw, 1.9rem); letter-spacing: -.02em; line-height: 1.15; }
+  .block-body p { color: var(--ink-72); max-width: 62ch; }
+  .block-body p b { color: var(--ink); font-weight: 500; }
+  @media (max-width: 680px) { .case-block { grid-template-columns: 1fr; gap: .8rem; } .block-label { padding-top: 0; } }
+
+  /* mini stat callouts */
+  .callouts { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(.6rem, 2vw, 1.4rem); margin-top: 1.6rem !important; }
+  .callout { border-left: 2px solid var(--rust); padding: .2rem 0 .2rem 1rem; }
+  .callout .c-num { font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: clamp(1.5rem, 3.6vw, 2.3rem); letter-spacing: -.03em; line-height: 1; display: block; }
+  .callout .c-txt { font-size: .82rem; color: var(--ink-50); line-height: 1.4; display: block; margin-top: .55rem; }
+  @media (max-width: 620px) { .callouts { grid-template-columns: 1fr; gap: 1.1rem; } }
+
+  /* funnel */
+  .funnel { margin-top: 1.8rem !important; display: flex; flex-direction: column; gap: .55rem; }
+  .funnel-row { margin: 0 auto; width: var(--w); max-width: 100%; }
+  .funnel-bar {
+    height: clamp(44px, 7vw, 58px); border-radius: 7px; background: var(--sand);
+    display: flex; align-items: center; padding-inline: clamp(.8rem, 2vw, 1.3rem);
+    transform: scaleX(.2); transform-origin: center; opacity: .25;
+    transition: transform .9s var(--ease), opacity .9s var(--ease);
+    transition-delay: calc(var(--i, 0) * .12s);
+    border: 1px solid var(--line-soft);
+  }
+  .reveal.in .funnel-bar { transform: scaleX(1); opacity: 1; }
+  .funnel-row.key .funnel-bar { background: var(--rust); border-color: transparent; box-shadow: var(--shadow); }
+  .funnel-txt { font-family: 'IBM Plex Mono', monospace; font-size: clamp(.72rem, 1.6vw, .85rem); color: var(--ink-72); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .funnel-row.key .funnel-txt { color: #fff; font-weight: 500; }
+
+  /* approaches */
+  .approaches { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(.7rem, 1.6vw, 1.1rem); margin-top: 1.7rem !important; }
+  .approach { border: 1px solid var(--line); border-radius: 12px; padding: clamp(1.1rem, 2vw, 1.5rem); background: var(--paper); display: flex; flex-direction: column; gap: .7rem; }
+  .approach.out { opacity: .62; }
+  .approach.in-pick { border-color: var(--slate); background: #fff; box-shadow: var(--shadow); opacity: 1; }
+  .appr-tag { font-family: 'IBM Plex Mono', monospace; font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; align-self: flex-start; padding: .3em .7em; border-radius: 100px; }
+  .approach.out .appr-tag { color: var(--ink-50); border: 1px solid var(--line); text-decoration: line-through; }
+  .approach.in-pick .appr-tag { color: #fff; background: var(--slate); }
+  .approach h4 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.18rem; letter-spacing: -.01em; }
+  .approach p { font-size: .9rem; color: var(--ink-72); line-height: 1.55; }
+  @media (max-width: 760px) { .approaches { grid-template-columns: 1fr; } }
+
+  .formula { margin-top: 1.5rem !important; font-family: 'IBM Plex Mono', monospace; font-size: clamp(1rem, 2.6vw, 1.45rem); letter-spacing: -.01em; color: var(--ink); display: flex; align-items: center; gap: .55em; flex-wrap: wrap; }
+  .formula .res { color: var(--slate); font-weight: 600; }
+  .formula .x { color: var(--rust); font-size: 1.2em; }
+  .formula .eq { color: var(--ink-35); }
+
+  /* deltas */
+  .deltas { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(.6rem, 2vw, 1.4rem); margin-top: 1.6rem !important; }
+  .delta { padding: 1.1rem 0; border-top: 2px solid var(--ink); }
+  .delta.win { border-top-color: var(--rust); }
+  .d-label { font-family: 'IBM Plex Mono', monospace; font-size: .74rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-50); display: block; }
+  .d-val { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(1.2rem, 2.6vw, 1.7rem); letter-spacing: -.02em; display: block; margin-top: .5rem; }
+  .delta.win .d-val em { color: var(--rust); font-style: normal; }
+  @media (max-width: 620px) { .deltas { grid-template-columns: 1fr; gap: 0; } .delta { border-top: 0; border-bottom: 1px solid var(--line); } .delta:first-child { border-top: 2px solid var(--rust); } }
+
+  .phases { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; margin-top: 1.5rem !important; }
+  .phase { font-family: 'IBM Plex Mono', monospace; font-size: .8rem; padding: .5em .9em; border: 1px solid var(--line); border-radius: 100px; color: var(--ink-72); }
+  .phase b { color: var(--ink); }
+  .phases .sep { color: var(--ink-35); }
+
+  /* pull quote */
+  .pull { margin-top: clamp(2.8rem, 6vh, 4rem); padding: clamp(2rem, 5vw, 3.4rem) 0; border-top: 1px solid var(--line); }
+  .pull blockquote { font-family: 'Fraunces', serif; font-weight: 400; font-style: italic; font-size: clamp(1.6rem, 4.2vw, 2.9rem); line-height: 1.16; letter-spacing: -.02em; max-width: 22ch; }
+  .pull blockquote span { color: var(--rust); }
+  .pull cite { display: block; margin-top: 1.4rem; font-family: 'IBM Plex Mono', monospace; font-style: normal; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-50); }
+
+  /* ---------- about ---------- */
+  .about { padding-block: clamp(4rem, 11vh, 7.5rem); border-top: 1px solid var(--line); }
+  .about-grid { display: grid; grid-template-columns: minmax(240px, 340px) 1fr; gap: clamp(2rem, 6vw, 5rem); align-items: center; }
+  .portrait { position: relative; margin: 0; align-self: start; }
+  .portrait::before {
+    content: ""; position: absolute; inset: 0; border: 1px solid var(--rust);
+    border-radius: 10px; transform: translate(14px, 14px); z-index: 0;
+  }
+  .portrait .frame {
+    position: relative; z-index: 1; border-radius: 10px; overflow: hidden;
+    box-shadow: var(--shadow); aspect-ratio: 4 / 5;
+  }
+  .portrait img {
+    display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%;
+  }
+  .portrait figcaption {
+    position: absolute; z-index: 2; left: 0; top: 100%; margin-top: .85rem; white-space: nowrap;
+    font-family: 'IBM Plex Mono', monospace; font-size: .72rem; letter-spacing: .08em;
+    color: var(--ink-50); display: flex; align-items: center; gap: .6em;
+  }
+  .portrait figcaption::before { content: ""; width: 1.4em; height: 1px; background: var(--rust); }
+
+  .about-body .eyebrow { margin-bottom: 1.2rem; }
+  .about-body h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(2rem, 4.6vw, 3.2rem); line-height: 1.05; letter-spacing: -.03em; }
+  .about-body h2 em { font-style: italic; color: var(--rust); }
+  .about-body p { margin-top: 1.3rem; max-width: 54ch; color: var(--ink-72); }
+  .about-body p b { color: var(--ink); font-weight: 500; }
+  .cred { list-style: none; display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.9rem; }
+  .cred li { font-family: 'IBM Plex Mono', monospace; font-size: .76rem; color: var(--ink-72); border: 1px solid var(--line); border-radius: 100px; padding: .5em .95em; }
+  .cred li b { color: var(--rust); font-weight: 500; }
+  @media (max-width: 760px) {
+    .about-grid { grid-template-columns: 1fr; gap: clamp(2.8rem, 9vw, 3.5rem); }
+    .portrait { max-width: 320px; }
+  }
+
+  /* ---------- closing ---------- */
+  .closing { background: var(--ink); color: var(--paper); padding-block: clamp(4rem, 11vh, 7.5rem); position: relative; overflow: hidden; }
+  .closing::before {
+    content: ""; position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(245,242,238,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(245,242,238,.05) 1px, transparent 1px);
+    background-size: 68px 68px;
+    -webkit-mask-image: radial-gradient(100% 100% at 0% 100%, #000, transparent 60%);
+    mask-image: radial-gradient(100% 100% at 0% 100%, #000, transparent 60%);
+  }
+  .closing .container { position: relative; z-index: 1; }
+  .closing .eyebrow { color: #E98A6F; }
+  .closing .eyebrow::before { background: #E98A6F; }
+  .closing h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(2.4rem, 7vw, 5rem); line-height: 1; letter-spacing: -.035em; margin-top: 1.2rem; }
+  .closing h2 em { font-style: italic; color: #E98A6F; }
+  .closing p { margin-top: 1.4rem; max-width: 46ch; color: rgba(245,242,238,.7); }
+  .btn-row { margin-top: 2.2rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+  .btn {
+    font-family: 'IBM Plex Mono', monospace; font-size: .9rem; text-decoration: none;
+    background: var(--paper); color: var(--ink); padding: .85em 1.5em; border-radius: 100px;
+    display: inline-flex; align-items: center; gap: .6em;
+    transition: transform .35s var(--ease), background .35s var(--ease);
+  }
+  .btn:hover { transform: translateY(-2px); background: #fff; }
+  .btn:active { transform: translateY(0); }
+  .btn .ar { transition: transform .35s var(--ease); }
+  .btn:hover .ar { transform: translate(3px, -3px); }
+  .btn-ghost { background: transparent; color: var(--paper); border: 1px solid rgba(245,242,238,.3); }
+  .btn-ghost:hover { background: rgba(245,242,238,.08); }
+
+  footer { padding: 1.8rem var(--pad); display: flex; justify-content: space-between; flex-wrap: wrap; gap: .6rem; font-family: 'IBM Plex Mono', monospace; font-size: .74rem; color: var(--ink-50); }
+
+  /* ---------- reveal ---------- */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
+  .reveal.in { opacity: 1; transform: none; }
+  .stagger > * { opacity: 0; transform: translateY(26px); animation: rise .9s var(--ease) forwards; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+    .reveal, .stagger > *, .hero-fade { opacity: 1 !important; transform: none !important; }
+    .hl::after { transform: scaleX(1) skewX(-3deg); }
+    .funnel-bar { transform: scaleX(1); opacity: 1; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body id="top">
+<div class="grain" aria-hidden="true"></div>
+
+<header class="site-header">
+  <a href="#top" class="wordmark">Vini Chhajed<span>.</span></a>
+  <nav class="site-nav">
+    <a href="work/index.html" class="hide-sm">Work</a>
+    <a href="#about" class="hide-sm">About</a>
+    <a href="mailto:vinichhajed@gmail.com" class="nav-cta">Get in touch</a>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-text stagger">
+      <p class="eyebrow" style="animation-delay:.05s">Senior Data Analyst · Diagnostic</p>
+      <h1 class="hero-title" style="animation-delay:.15s">I find the <span class="hl"><span class="t">money</span></span> hiding in your&nbsp;data.</h1>
+      <p class="hero-sub" style="animation-delay:.3s">I turn messy data into business decisions, at the intersection of <b>user behaviour</b> and <b>unit economics</b>. I run the experiments, fix the funnels, and find the cost leaks platforms didn't know they had.</p>
+      <div class="hero-meta" style="animation-delay:.42s">
+        <span>Where product stops and finance starts</span>
+        <span class="dot"></span>
+        <span>Goa, working globally</span>
+        <span class="dot"></span>
+        <span>Intellect · 36 countries</span>
+      </div>
+    </div>
+    <figure class="hero-portrait hero-fade" style="animation-delay:.35s">
+      <div class="frame"><img src="assets/vini-hero.jpeg" alt="Vini Chhajed, senior data analyst" /></div>
+    </figure>
+    <ul class="stat-row hero-fade" style="animation-delay:.6s">
+      <li class="stat">
+        <span class="stat-num"><span data-count="80">80</span>%</span>
+        <span class="stat-label">ML lift over rule-based matching</span>
+      </li>
+      <li class="stat">
+        <span class="stat-num">45<span class="arrow">→</span><span data-count="82">82</span>%</span>
+        <span class="stat-label">Booking conversion, funnel rebuild</span>
+      </li>
+      <li class="stat">
+        <span class="stat-num"><span class="pre">S$</span><span data-count="457">457</span><span class="suf">K</span></span>
+        <span class="stat-label">Cost leakage identified</span>
+      </li>
+      <li class="stat">
+        <span class="stat-num"><span data-count="500">500</span><span class="suf">+</span></span>
+        <span class="stat-label">Provider payouts automated monthly</span>
+      </li>
+    </ul>
+    <div class="scroll-cue hero-fade" style="animation-delay:.72s"><span class="bar"></span> Selected work</div>
+  </div>
+</section>
+
+<!-- ============ THE GAP ============ -->
+<section class="gap">
+  <div class="container gap-inner reveal">
+    <p class="gap-statement">Most analysts read one side: behaviour <em>or</em> economics. I read both, and act on the&nbsp;gap.</p>
+    <div class="gap-diagram" aria-hidden="true">
+      <span class="gap-node">Product</span>
+      <span class="gap-arrow">→</span>
+      <span class="gap-node me">Me</span>
+      <span class="gap-arrow">←</span>
+      <span class="gap-node">Finance</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CASE STUDY ============ -->
+<section class="case" id="work">
+  <div class="container">
+    <div class="case-head reveal">
+      <p class="eyebrow">Case 01 · Cost Leakage</p>
+      <h2 class="case-title">Finding the leak in a recommendation funnel at scale.</h2>
+    </div>
+    <p class="case-dek reveal">Scaling from one market to 36 changed the economics overnight. A proactive funnel review turned that shift into a structural cost cut, without touching the personalisation that drove satisfaction.</p>
+
+    <div class="case-anchor reveal">
+      <span class="anchor-num"><span class="pre">S$</span><span data-count="457">457</span><span class="suf">K</span></span>
+      <span class="anchor-label">recovered annually, about <b>10% of operational cost</b>, with no significant change to match rate or satisfaction.</span>
+    </div>
+
+    <!-- problem -->
+    <div class="case-block reveal">
+      <p class="block-label">01 · Problem</p>
+      <div class="block-body">
+        <h3>The system was tuned for a world that no longer existed.</h3>
+        <p>The matching engine was built for a single market, where every provider cost about the same, so <b>cost was never a variable</b>. Then the platform grew to 36 countries and 700+ providers across dozens of rate tiers. Relevance-only ranking kept surfacing expensive providers in the exact slots that decide conversion.</p>
+        <div class="callouts">
+          <div class="callout"><span class="c-num">75%</span><span class="c-txt">of all selections happen in the top 5 results, the entire game</span></div>
+          <div class="callout"><span class="c-num">24%</span><span class="c-txt">of users saw zero affordable options in their top 5</span></div>
+          <div class="callout"><span class="c-num">3.6×</span><span class="c-txt">local rates, what some users were quietly matched against</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- method -->
+    <div class="case-block reveal">
+      <p class="block-label">02 · Method</p>
+      <div class="block-body">
+        <h3>Map the funnel first. Build second.</h3>
+        <p>I reviewed the journey stage by stage to find where the economics broke, the <b>Top 10 → Top 5</b> step, then tested three ways to fix it through simulation before recommending anything.</p>
+        <div class="funnel">
+          <div class="funnel-row" style="--w:100%;--i:0"><div class="funnel-bar"><span class="funnel-txt">300+ providers scored on relevance</span></div></div>
+          <div class="funnel-row" style="--w:66%;--i:1"><div class="funnel-bar"><span class="funnel-txt">Top 10 surfaced</span></div></div>
+          <div class="funnel-row key" style="--w:42%;--i:2"><div class="funnel-bar"><span class="funnel-txt">Top 5 · 75% of selections</span></div></div>
+          <div class="funnel-row" style="--w:22%;--i:3"><div class="funnel-bar"><span class="funnel-txt">1 selected</span></div></div>
+        </div>
+        <div class="approaches">
+          <article class="approach out"><span class="appr-tag">Rejected</span><h4>Additive weight</h4><p>Add cost as a new scoring signal. Too weak to move rankings, and it diluted the signals already driving healthy matches.</p></article>
+          <article class="approach out"><span class="appr-tag">Rejected</span><h4>Hard bucketing</h4><p>Always surface cheap providers first. Fixes cost, destroys personalisation. A great fit loses to a poor cheap one every time.</p></article>
+          <article class="approach in-pick"><span class="appr-tag">Shipped</span><h4>Penalty-only multiplier</h4><p>Penalise overpriced matches, never inflate cheap ones. Drops into the pipeline with zero changes upstream.</p></article>
+        </div>
+        <p class="formula"><span class="res">FinalScore</span> <span class="eq">=</span> ExistingScore <span class="x">×</span> CostScore</p>
+      </div>
+    </div>
+
+    <!-- result -->
+    <div class="case-block reveal">
+      <p class="block-label">03 · Result</p>
+      <div class="block-body">
+        <h3>Cost as a guardrail on relevance, not a replacement for it.</h3>
+        <p>Validated through a phased experiment with guardrails mapped to every funnel stage: two-tailed t-tests, 95% confidence, 5% minimum detectable effect.</p>
+        <div class="deltas">
+          <div class="delta win"><span class="d-label">Annual op cost</span><span class="d-val"><em>−10%</em></span></div>
+          <div class="delta"><span class="d-label">Match rate</span><span class="d-val">Held steady</span></div>
+          <div class="delta"><span class="d-label">User satisfaction</span><span class="d-val">Held steady</span></div>
+        </div>
+        <div class="phases">
+          <span class="phase"><b>20%</b> · 2 markets</span>
+          <span class="sep">→</span>
+          <span class="phase"><b>50%</b> · remaining</span>
+          <span class="sep">→</span>
+          <span class="phase"><b>100%</b> · monitored</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- decision -->
+    <div class="case-block reveal">
+      <p class="block-label">04 · Decision</p>
+      <div class="block-body">
+        <h3>One page to leadership. A toolkit that outlasted the project.</h3>
+        <p>I framed the three options as a one-page proposal in business language: what we'd gain, what we'd risk, why I recommended the conservative path. To ship it safely, I built a self-serve simulation toolkit so PMs could pressure-test the algorithm themselves, long after the project closed.</p>
+      </div>
+    </div>
+
+    <div class="pull reveal">
+      <blockquote>Efficiency as a constraint on personalisation, <span>not a replacement for it.</span></blockquote>
+      <cite>The pattern that repeats across every matching system</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="container about-grid">
+    <figure class="portrait reveal">
+      <div class="frame"><img src="assets/vini.jpeg" alt="Vini Chhajed, senior data analyst" /></div>
+      <figcaption>Goa, India · working globally</figcaption>
+    </figure>
+    <div class="about-body reveal">
+      <p class="eyebrow">About</p>
+      <h2>Cold numbers, <em>warm purpose.</em></h2>
+      <p>I'm a senior data analyst at <b>Intellect</b>, a mental-health platform serving 36 countries. I started out engineering payment systems for global banks (JP Morgan, HSBC, Barclays), then studied at <b>ISB</b> and moved into analytics.</p>
+      <p>The throughline: I'm happiest in the gap where product intuition meets financial reality. I lead with the finding, name the tradeoff, and won't ship dashboards for the sake of dashboards. The decisions worth finding protect both the business and the people using it.</p>
+      <ul class="cred">
+        <li><b>ISB</b> · Business Analytics</li>
+        <li><b>10 yrs</b> · Engineer → Analyst</li>
+        <li>Python · SQL · ML · A/B testing</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING ============ -->
+<section class="closing" id="contact">
+  <div class="container reveal">
+    <p class="eyebrow">The next leak</p>
+    <h2>Every platform has one. <em>Let's find yours.</em></h2>
+    <p>Senior data analyst, ex-engineer for global banks, now scaling a platform across 36 countries. If your numbers feel slightly off but no one can say why, that's usually where the money is.</p>
+    <div class="btn-row">
+      <a href="mailto:vinichhajed@gmail.com" class="btn">vinichhajed@gmail.com <span class="ar">↗</span></a>
+      <a href="https://www.linkedin.com/in/vinichhajed/" class="btn btn-ghost">LinkedIn <span class="ar">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 Vini Chhajed</span>
+  <span>Diagnostic · built where product stops and finance starts</span>
+</footer>
+
+<script>
+  // staggered hero load handled by CSS animation-delay
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+  // count up
+  const countUp = (el) => {
+    const target = +el.dataset.count;
+    if (reduce) { el.textContent = target.toLocaleString('en-US'); return; }
+    const dur = 1500, start = performance.now();
+    const tick = (now) => {
+      const p = Math.min((now - start) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(eased * target).toLocaleString('en-US');
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  const co = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) { countUp(e.target); co.unobserve(e.target); }
+    });
+  }, { threshold: 0.6 });
+  // Counters already hold their final value in markup; only animate ones that
+  // are below the fold at load, so the hero numbers don't flash on first paint.
+  document.querySelectorAll('[data-count]').forEach((el) => {
+    const r = el.getBoundingClientRect();
+    const inView = r.top < window.innerHeight && r.bottom > 0;
+    if (!inView && !reduce) co.observe(el);
+  });
+</script>
+</body>
+</html>
