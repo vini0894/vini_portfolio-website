@@ -3,8 +3,7 @@ node_modules/
 
 # Local QA artifacts
 temporary screenshots/
-vp-shot.mjs
-vp-sections.mjs
+vp-*.mjs
 
 # Internal / source materials — kept out of the public repo
 personal projects/
